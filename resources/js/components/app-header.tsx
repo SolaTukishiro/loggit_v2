@@ -45,6 +45,10 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Logs',
+        href: '/logs',
+    },
 ];
 
 const rightNavItems: NavItem[] = [
