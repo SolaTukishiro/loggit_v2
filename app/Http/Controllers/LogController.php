@@ -56,7 +56,9 @@ class LogController extends Controller
      */
     public function edit(Log $log)
     {
-        //
+        return inertia('Logs/Edit',[
+            'log' => $log,
+        ]);
     }
 
     /**
@@ -64,7 +66,14 @@ class LogController extends Controller
      */
     public function update(Request $request, Log $log)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'body' => ['nullable', 'string'],
+        ]);
+
+        $log->update($validated);
+
+        return redirect()->route('logs.index');
     }
 
     /**
