@@ -1,4 +1,4 @@
-import { Form } from '@inertiajs/react';
+import { Form, router } from '@inertiajs/react';
 
 type Log = {
     id: number;
@@ -45,6 +45,19 @@ export default function Edit({ log }: Props) {
                         <button type="submit">
                             Update
                         </button>
+                        <Form action={`/logs/${log.id}`} method="POST">
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    if (window.confirm('このログを削除しますか？')) {
+                                        router.delete(`/logs/${log.id}`);
+                                    }
+                                }}
+                                className="rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+                            >
+                                Delete
+                            </button>
+                        </Form>
                     </>
                 )}
             </Form>
