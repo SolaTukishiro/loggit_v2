@@ -38,7 +38,7 @@ export default function Index({ logs }: Props) {
                     {logs.map((log) => (
                         <Link
                             key={log.id}
-                            href={`/logs/${log.id}/edit`}
+                            href={`/logs/${log.id}`}
                             className="group flex min-h-52 flex-col rounded-2xl border bg-card p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
                         >
                             <div className="flex-1">
